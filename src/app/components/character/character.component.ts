@@ -7,7 +7,11 @@ import { CharacterService } from 'src/app/services/character.service';
   styles: [],
 })
 export class CharacterComponent implements OnInit {
-  constructor(characterService: CharacterService) {}
+  constructor(private characterService: CharacterService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('Va a query');
+
+    this.characterService.getAllCharacter();
+  }
 }
