@@ -1,16 +1,21 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { APP_ROUTING } from './app.routes';
+import { ROUTES } from './app.routes';
 import { CharacterComponent } from './components/character/character.component';
 import { HomeComponent } from './components/home/home.component';
 import { CharacterService } from './services/character.service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, CharacterComponent],
-  imports: [BrowserModule, AppRoutingModule, APP_ROUTING],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(ROUTES, { useHash: true }),
+    HttpClientModule,
+  ],
   providers: [CharacterService],
   bootstrap: [AppComponent],
 })
